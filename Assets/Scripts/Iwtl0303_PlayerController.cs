@@ -16,6 +16,11 @@ public class Iwtl0303_PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Iwtl0303_MainManager.Instance.isGameOver)
+        {
+            Destroy(gameObject);
+        }
+        
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
         transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);

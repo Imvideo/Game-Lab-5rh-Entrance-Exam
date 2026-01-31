@@ -34,29 +34,32 @@ public class Iwtl0303_PlayerAttack : MonoBehaviour
 
         foreach (var h in Physics2D.OverlapCircleAll(p, radius, enemyMask))
             if (Vector2.Angle(dir, (Vector2)h.transform.position - p) <= half)
-                h.GetComponent<Iwtl0303_EnemyHealth>()?.Attacked(damage);
+                h.GetComponentInParent<Iwtl0303_EnemyHealth>()?.Attacked(damage);
 
-        DrawFan(p, dir);
+        DrawFan(dir);
     }
 
-    public void DrawFan(Vector2 center, Vector2 dir)
+    public void DrawFan(Vector2 dir)
     {
         float half = angle / 2;
         line.positionCount = lineSegments + 3;
 
-        line.SetPosition(0, center);
+        line.SetPosition(0, Vector2.zero);
+
+        Vector2 localDir = transform.InverseTransformDirection(dir);
+
 
         for (int i = 0; i <= lineSegments; i++)
         {
             float t = (float)i / lineSegments;
             float currentAngle = -half + angle * t;
 
-            Vector2 rotatedDir = Rotate(dir, currentAngle);
-            Vector2 point = center + rotatedDir * radius;
+            Vector2 rotatedDir = Rotate(localDir, currentAngle);
+            Vector2 point = rotatedDir * radius;
 
             line.SetPosition(i + 1, point);
         }
-        line.SetPosition(line.positionCount - 1, center);
+        line.SetPosition(line.positionCount - 1, Vector2.zero);
 
         CancelInvoke(nameof(HideFan));
         line.enabled = true;
