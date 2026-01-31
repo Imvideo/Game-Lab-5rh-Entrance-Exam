@@ -31,7 +31,7 @@ public class Iwtl0303_PlayerController : MonoBehaviour
         }
     }
 
-    void Teleport() // 순간이동
+    public void Teleport() // 순간이동
     {
         Vector3 mouse = Input.mousePosition;
         Vector3 world = Camera.main.ScreenToWorldPoint(mouse);
