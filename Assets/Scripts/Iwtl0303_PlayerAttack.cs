@@ -16,14 +16,18 @@ public class Iwtl0303_PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!Iwtl0303_MainManager.Instance.isGameOver && !Iwtl0303_MainManager.Instance.isWin)
         {
-            if (Time.time >= nextReadyTime)
+            if (Input.GetMouseButtonDown(0))
             {
-                Attack();
-                nextReadyTime = Time.time + cooldown;
+                if (Time.time >= nextReadyTime)
+                {
+                    Attack();
+                    nextReadyTime = Time.time + cooldown;
+                }
             }
         }
+
     }
 
     public void Attack()

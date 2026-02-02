@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 820392812504565711}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -240,6 +240,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Iwtl0303_EnemyHealth
   hp: 5
   point: 5
+  rend: {fileID: 1091318561922897982}
+  hitColor: {r: 0, g: 0.18060637, b: 1, a: 1}
+  hitFlashTime: 0.2
+  DeathEffectPrefab: {fileID: 2657561562031884407, guid: a27e9f92b9a452d41b3626d03b9fc849, type: 3}
+  deathEffectLife: 1.5
 --- !u!1 &6896054123034187980
 GameObject:
   m_ObjectHideFlags: 0

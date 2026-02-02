@@ -14,11 +14,6 @@ public class Iwtl0303_EnemyGameOverTouch : MonoBehaviour
         
     }
 
-    void OnEnable()
-    {
-        Debug.Log("[Hit] enabled: " + transform.root.name);
-    }
-
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))

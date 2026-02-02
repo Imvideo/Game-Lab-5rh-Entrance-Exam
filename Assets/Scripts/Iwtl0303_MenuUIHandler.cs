@@ -17,7 +17,7 @@ public class Iwtl0303_MenuUIHandler : MonoBehaviour
             playerName = "Guest";
         }
 
-        
+        Iwtl0303_PersistentData.Instance.PlayerName = playerName;
         SceneManager.LoadScene(1);
     }
 
